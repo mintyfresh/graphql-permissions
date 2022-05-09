@@ -1,10 +1,13 @@
 # frozen_string_literal: true
 
+require 'graphql'
 require_relative 'permissions/version'
 
 module GraphQL
   module Permissions
     autoload :DSL, 'graphql/permissions/dsl'
+    autoload :InterfacePermissions, 'graphql/permissions/interface_permissions'
+    autoload :ObjectPermissions, 'graphql/permissions/object_permissions'
 
     # @return [Proc]
     def self.default_permission_handler
