@@ -4,7 +4,7 @@ require_relative 'lib/graphql/permissions/version'
 
 Gem::Specification.new do |spec|
   spec.name          = 'graphql-permissions'
-  spec.version       = Graphql::Permissions::VERSION
+  spec.version       = GraphQL::Permissions::VERSION
   spec.authors       = ['Minty Fresh']
   spec.email         = ['7896757+mintyfresh@users.noreply.github.com']
 

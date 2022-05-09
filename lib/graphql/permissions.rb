@@ -2,9 +2,8 @@
 
 require_relative 'permissions/version'
 
-module Graphql
+module GraphQL
   module Permissions
-    class Error < StandardError; end
     # Your code goes here...
   end
 end
