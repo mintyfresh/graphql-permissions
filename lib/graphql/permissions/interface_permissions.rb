@@ -8,7 +8,12 @@ module GraphQL
 
       def included(klass)
         super
+
         klass.extend(GraphQL::Permissions::InterfacePermissions) unless klass.is_a?(Class)
+        return unless klass.is_a?(Class) && klass < GraphQL::Schema::Object && permissions_type
+
+        klass.permissions {} # rubocop:disable Lint/EmptyBlock
+        klass.permissions_type.implements(permissions_type)
       end
 
       # @return [Array<Module>]
