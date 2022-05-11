@@ -24,7 +24,21 @@ Then run the Rails generator:
 
     $ bin/rails generate graphql:permissions:install
 
-This will create the base permissions object and interface types, as well as an initializer under `config/initializers/graphql_permissions.rb`
+This will create the base permissions object and interface types, as well as an initializer in `config/initializers/graphql_permissions.rb`
+
+### Configuring a Permission Handler
+
+GraphQL Permissions requires a default permission handler callback to be defined by your application. This callback receives the action performed, the object being authorized, and your GraphQL context, and must return a Boolean value to indicate whether the action is or is not allowed.
+
+For example, integration for the Pundit gem might look like so:
+
+```ruby
+GraphQL::Permissions.default_permission_handler = lambda do |action, object, context|
+  Pundit.policy(context[:current_user], object).send(:"#{action}?")
+end
+```
+
+A stub permissions handler callback is defined under `config/initializers/graphql_permissions.rb` by the Rails generator.
 
 ## Usage
 
