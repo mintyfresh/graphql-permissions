@@ -16,7 +16,7 @@ query PostById($id: ID!) {
 }
 ```
 
-It helps you keep all of your authorization logic in one place, and prevent disagreements between the server and client about whether a user can perform an action.
+This helps keep all of your authorization logic in one place, and prevent disagreements between the server and client about whether a user can perform an action.
 
 GraphQL Permissions was designed with the [Pundit](https://github.com/varvet/pundit) gem in mind, but should work with most authorization libraries.
 
