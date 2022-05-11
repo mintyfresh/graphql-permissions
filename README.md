@@ -1,8 +1,24 @@
 # GraphQL::Permissions
 
-Welcome to your new gem! In this directory, you'll find the files you need to be able to package up your Ruby library into a gem. Put your Ruby code in the file `lib/graphql/permissions`. To experiment with that code, run `bin/console` for an interactive prompt.
+GraphQL Permissions allows you to model permissions directly in your GraphQL schema. It works together with your authorization library to communicate which actions are and are not allowed to your client.
 
-TODO: Delete this and the text above, and describe your gem
+At the highest level, it lets you write queries like this:
+```graphql
+query PostById($id: ID!) {
+  post(id: $id) {
+    id
+    body
+    permissions {
+      canEdit
+      canDelete
+    }
+  }
+}
+```
+
+It helps you keep all of your authorization logic in one place, and prevent disagreements between the server and client about whether a user can perform an action.
+
+GraphQL Permissions was designed with the [Pundit](https://github.com/varvet/pundit) gem in mind, but should work with most authorization libraries.
 
 ## Installation
 
