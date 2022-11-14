@@ -18,7 +18,7 @@ module GraphQL
 
       # @return [Array<Module>]
       def interfaces_with_permissions
-        own_interfaces.select { |interface| interface.respond_to?(:permissions_type) && interface.permissions_type }
+        interfaces.select { |interface| interface.respond_to?(:permissions_type) && interface.permissions_type }
       end
 
       def permissions(&block)
