@@ -2,7 +2,7 @@ PATH
   remote: .
   specs:
     graphql-permissions (0.1.0)
-      graphql
+      graphql (~> 2)
 
 GEM
   remote: https://rubygems.org/
